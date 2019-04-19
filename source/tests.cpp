@@ -57,17 +57,17 @@ TEST_CASE ( "operator /=" , "[vec2]" ) {
 TEST_CASE ( "operator +" , "[vec2]" ) {
   Vec2 a {4.5f, -1.9f};
   Vec2 b {3.2f, 10.5f};
-  a + b;
+  Vec2 c = a + b;
   
-  //REQUIRE(operator+((7.7f == Approx(ergebnis.x))));
-  //REQUIRE(operator+((8.6f == Approx(ergebnis.y))));
+  REQUIRE((7.7f == Approx(c.x)));
+  REQUIRE((8.6f == Approx(c.y)));
   
   //REQUIRE(operator+((4.5f, -1.9f),(3.2f, 10.5f) == Approx(7.7f, 8.6f))));
   //REQUIRE(operator+({1.2f, 13.4f},{6.1f, 7.6f}) == Approx(7.3f, 21.0f));
   //REQUIRE(operator+({-8.8f, 2.0f},{3.0f, 10.0f}) == Approx(-5.8f, 12.0f));
 
-  REQUIRE(operator+(7.7f == Approx((ergebnisx))));
-  REQUIRE(operator+(8.6f == Approx((ergebnisy))));
+  //REQUIRE(operator+(7.7f == Approx((ergebnisx))));
+  //REQUIRE(operator+(8.6f == Approx((ergebnisy))));
 }
 
 int main(int argc, char *argv[])
