@@ -30,19 +30,22 @@ Vec2 operator+( Vec2 const& u , Vec2 const& v ) {
     //Vec2 ergebnis = u + v;
     //return ergebnis;
 
-    Vec2 ergebnisx;
-    Vec2 ergebnisy;
-    ergebnisx = x + u.x + v.x;
-    ergebnisy = y + u.y + v.y;
+    //Vec2 ergebnisx;
+    //Vec2 ergebnisy;
+    //ergebnisx = x + u.x + v.x;
+    //ergebnisy = y + u.y + v.y;
     //return *this;
-    return ergebnisx, ergebnisy;
+    //return ergebnisx, ergebnisy;
+
+    Vec2 a = u;
+    return a += v;
 }
 
 Vec2 operator-( Vec2 const& u , Vec2 const& v ) {
 
 }
 
-Vec2 operator*( Vec2 const& v , float s ); {
+Vec2 operator*( Vec2 const& v , float s ) {
 
 }
 
