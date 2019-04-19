@@ -1,5 +1,6 @@
 #include "vec2.hpp"
-   
+
+//Memberfunktionen (Aufgabe 2.3)
 Vec2 & Vec2::operator +=( Vec2 const & v ) {
     x = x + v.x;
     y = y + v.y;
@@ -24,24 +25,32 @@ Vec2 & Vec2::operator /=( float s ) {
     return *this;
 }
 
-// freie Funktionen
-Vec2 operator +( Vec2 const & u , Vec2 const & v ) {
+// freie Funktionen (Aufgabe 2.4)
+Vec2 operator+( Vec2 const& u , Vec2 const& v ) {
+    //Vec2 ergebnis = u + v;
+    //return ergebnis;
+
+    Vec2 ergebnisx;
+    Vec2 ergebnisy;
+    ergebnisx = x + u.x + v.x;
+    ergebnisy = y + u.y + v.y;
+    //return *this;
+    return ergebnisx, ergebnisy;
+}
+
+Vec2 operator-( Vec2 const& u , Vec2 const& v ) {
 
 }
 
-Vec2 operator -( Vec2 const & u , Vec2 const & v ) {
+Vec2 operator*( Vec2 const& v , float s ); {
 
 }
 
-Vec2 operator *( Vec2 const & v , float s ); {
+Vec2 operator/( Vec2 const& v , float s ) {
 
 }
 
-Vec2 operator /( Vec2 const & v , float s ) {
-
-}
-
-Vec2 operator *( float s , Vec2 const & v ){
+Vec2 operator*( float s , Vec2 const& v ){
 
 }
 
