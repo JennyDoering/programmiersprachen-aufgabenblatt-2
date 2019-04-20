@@ -100,6 +100,29 @@ TEST_CASE ( "operator -" , "[vec2]" ) {
   REQUIRE((-8.0f == Approx(i.y)));
 }
 
+TEST_CASE ( "operator *" , "[vec2]" ) {
+  Vec2 a {4.5f, -1.9f};
+  float s = 2;
+  Vec2 c = a * s;
+  
+  REQUIRE((9.0f == Approx(c.x)));
+  REQUIRE((-3.8f == Approx(c.y)));
+
+  // Vec2 d {1.2f, 13.4f};
+  // Vec2 e {6.1f, 7.6f};
+  // Vec2 f = d - e;
+  
+  // REQUIRE((-4.9f == Approx(f.x)));
+  // REQUIRE((5.8f == Approx(f.y)));
+
+  // Vec2 g {-8.8f, 2.0f};
+  // Vec2 h {3.0f, 10.0f};
+  // Vec2 i = g - h;
+  
+  // REQUIRE((-11.8f == Approx(i.x)));
+  // REQUIRE((-8.0f == Approx(i.y)));
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
