@@ -101,16 +101,37 @@ TEST_CASE ( "operator -" , "[vec2]" ) {
 }
 
 TEST_CASE ( "operator *" , "[vec2]" ) {
-  Vec2 a {4.5f, -1.9f};
-  float s = 2;
-  Vec2 c = a * s;
+  Vec2 c {4.5f, -1.9f};
+  float b = 2;
+  //c*b;
+  //Vec2 c = d * s;
   
   REQUIRE((9.0f == Approx(c.x)));
   REQUIRE((-3.8f == Approx(c.y)));
 
   // Vec2 d {1.2f, 13.4f};
-  // Vec2 e {6.1f, 7.6f};
-  // Vec2 f = d - e;
+  // float s = -5
+  
+  // REQUIRE((-6.0f == Approx(d.x)));
+  // REQUIRE((-67.0f == Approx(d.y)));
+
+  // Vec2 g {-8.8f, 2.0f};
+  // float s = 1.5
+  
+  // REQUIRE((-13.2f == Approx(g.x)));
+  // REQUIRE((3.0f == Approx(g.y)));
+}
+
+TEST_CASE ( "operator /" , "[vec2]" ) {
+  Vec2 c {4.5f, -1.9f};
+  float s = 2;
+  //Vec2 c = d * s;
+  
+  REQUIRE((2.25f == Approx(c.x)));
+  REQUIRE((-0.95f == Approx(c.y)));
+
+  // Vec2 d {1.2f, 13.4f};
+  // float s = 2;
   
   // REQUIRE((-4.9f == Approx(f.x)));
   // REQUIRE((5.8f == Approx(f.y)));
