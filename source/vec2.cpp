@@ -27,27 +27,23 @@ Vec2 & Vec2::operator /=( float s ) {
 
 // freie Funktionen (Aufgabe 2.4)
 Vec2 operator+( Vec2 const& u , Vec2 const& v ) {
-    //Vec2 ergebnis = u + v;
-    //return ergebnis;
-
-    //Vec2 ergebnisx;
-    //Vec2 ergebnisy;
-    //ergebnisx = x + u.x + v.x;
-    //ergebnisy = y + u.y + v.y;
-    //return *this;
-    //return ergebnisx, ergebnisy;
 
     Vec2 a = u;
     return a += v;
 }
 
 Vec2 operator-( Vec2 const& u , Vec2 const& v ) {
- Vec2 a = u;
+    
+    Vec2 a = u;
     return a -= v;
 }
 
 Vec2 operator*( Vec2 const& v , float s ) {
-
+    //float a = s;
+    //return v *= a;
+    //return v = v * s;
+    Vec2 a = v * s;
+    return a;
 }
 
 Vec2 operator/( Vec2 const& v , float s ) {
