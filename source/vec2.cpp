@@ -42,12 +42,15 @@ Vec2 operator*( Vec2 const& v , float s ) {
     //float a = s;
     //return v *= a;
     //return v = v * s;
-    Vec2 a = v * s;
+    float b = s;
+    Vec2 a = v * b;
     return a;
 }
 
 Vec2 operator/( Vec2 const& v , float s ) {
-
+    float b = s;
+    Vec2 a = v / b;
+    return a;
 }
 
 Vec2 operator*( float s , Vec2 const& v ){
