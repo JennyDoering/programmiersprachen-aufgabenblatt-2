@@ -61,13 +61,43 @@ TEST_CASE ( "operator +" , "[vec2]" ) {
   
   REQUIRE((7.7f == Approx(c.x)));
   REQUIRE((8.6f == Approx(c.y)));
-  
-  //REQUIRE(operator+((4.5f, -1.9f),(3.2f, 10.5f) == Approx(7.7f, 8.6f))));
-  //REQUIRE(operator+({1.2f, 13.4f},{6.1f, 7.6f}) == Approx(7.3f, 21.0f));
-  //REQUIRE(operator+({-8.8f, 2.0f},{3.0f, 10.0f}) == Approx(-5.8f, 12.0f));
 
-  //REQUIRE(operator+(7.7f == Approx((ergebnisx))));
-  //REQUIRE(operator+(8.6f == Approx((ergebnisy))));
+  Vec2 d {1.2f, 13.4f};
+  Vec2 e {6.1f, 7.6f};
+  Vec2 f = d + e;
+  
+  REQUIRE((7.3f == Approx(f.x)));
+  REQUIRE((21.0f == Approx(f.y)));
+
+  Vec2 g {-8.8f, 2.0f};
+  Vec2 h {3.0f, 10.0f};
+  Vec2 i = g + h;
+  
+  REQUIRE((-5.8f == Approx(i.x)));
+  REQUIRE((12.0f == Approx(i.y)));
+}
+
+TEST_CASE ( "operator -" , "[vec2]" ) {
+  Vec2 a {4.5f, -1.9f};
+  Vec2 b {3.2f, 10.5f};
+  Vec2 c = a - b;
+  
+  REQUIRE((1.3f == Approx(c.x)));
+  REQUIRE((-12.4f == Approx(c.y)));
+
+  Vec2 d {1.2f, 13.4f};
+  Vec2 e {6.1f, 7.6f};
+  Vec2 f = d - e;
+  
+  REQUIRE((-4.9f == Approx(f.x)));
+  REQUIRE((5.8f == Approx(f.y)));
+
+  Vec2 g {-8.8f, 2.0f};
+  Vec2 h {3.0f, 10.0f};
+  Vec2 i = g - h;
+  
+  REQUIRE((-11.8f == Approx(i.x)));
+  REQUIRE((-8.0f == Approx(i.y)));
 }
 
 int main(int argc, char *argv[])
