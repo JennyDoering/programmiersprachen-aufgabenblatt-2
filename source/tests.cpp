@@ -167,14 +167,30 @@ TEST_CASE ( "operator * (2)" , "[vec2]" ) {
 
 // Aufgabe 2.5 *= operator
 TEST_CASE ("operator *= Matrizen", "[mat2]"){
-  Mat2 m {2.0f, 1.5f, 3.3f, -4.2f};
-  float s = 2;
-  m *= s;
+  Mat2 mat_a {2.0f, 1.5f, 3.3f, -4.2f};
+  
+  Mat2 mat_b {1.0f, 2.0f, 3.0f, 4.0f};
+  mat_a *= mat_b;
 
-  REQUIRE(4.0f == Approx(m.e_00));
-  REQUIRE(3.0f == Approx(m.e_01));
-  REQUIRE(6.6f == Approx(m.e_10));
-  REQUIRE(-8.4f == Approx(m.e_11));
+  // e_00 = 2.0f;
+  // e_01 = 1.5f;
+  // e_10 = 3.3f;
+  // e_11 = -4.2f;
+
+  REQUIRE(2.0f == Approx(m.e_00));
+  REQUIRE(4.0f == Approx(m.e_01));
+  REQUIRE(9.9f == Approx(m.e_10));
+  REQUIRE(-16.8f == Approx(m.e_11));
+
+  // float s = 2;
+  // m *= s;
+
+  // REQUIRE(4.0f == Approx(m.e_00));
+  // REQUIRE(3.0f == Approx(m.e_01));
+  // REQUIRE(6.6f == Approx(m.e_10));
+  // REQUIRE(-8.4f == Approx(m.e_11));
+
+ 
 }
 
 int main(int argc, char *argv[])
