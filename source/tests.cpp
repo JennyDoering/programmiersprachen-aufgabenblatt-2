@@ -1,4 +1,5 @@
 #include "vec2.hpp"
+#include "mat2.hpp"
 
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
@@ -162,6 +163,18 @@ TEST_CASE ( "operator * (2)" , "[vec2]" ) {
   
   REQUIRE((-13.2f == Approx(g.x)));
   REQUIRE((3.0f == Approx(g.y)));
+}
+
+// Aufgabe 2.5 *= operator
+TEST_CASE ("operator *= Matrizen", "[mat2]"){
+  Mat2 m {2.0f, 1.5f, 3.3f, -4.2f};
+  float s = 2;
+  m *= s;
+
+  REQUIRE(4.0f == Approx(m.e_00));
+  REQUIRE(3.0f == Approx(m.e_01));
+  REQUIRE(6.6f == Approx(m.e_10));
+  REQUIRE(-8.4f == Approx(m.e_11));
 }
 
 int main(int argc, char *argv[])
