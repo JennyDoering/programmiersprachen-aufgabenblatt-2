@@ -36,15 +36,21 @@ Mat2 & Mat2::operator *=( Mat2 const & m ) {
     // e_10 = e_10 * s;
     // e_11 = e_11 * s;
 
-//     for(int x=0;x<zeilen;x++){
-// 	for(int j=0;j<zeilen;j++){	
-// 		int result = 0;
-// 		for(int y=0;y<spalten;y++){			
-// 				result += matrixA[x][y] * matrixB[y][j];
-// 		}
-// 		matrixC[x][j] = result;
-// 	}		
-// }
+    int zeilen = 2;
+    int spalten = 2;
+    float mat_a[][];
+    float mat_b[][];
+    float mat_c[][];
+
+    for(int x = 0; x < zeilen; ++x){
+	    for(int j = 0; j < zeilen; ++j){	
+		    int result = 0;
+		    for(int y = 0; y < spalten; ++y){			
+				result += (mat_a[x][y].m * mat_b[y][j].m);
+		    }
+		    mat_c[x][j].m = result;
+	    }		
+    }
 
     
 
