@@ -177,10 +177,10 @@ TEST_CASE ("operator *= Matrizen", "[mat2]"){
   // e_10 = 3.3f;
   // e_11 = -4.2f;
 
-  REQUIRE(2.0f == Approx(m.e_00));
-  REQUIRE(4.0f == Approx(m.e_01));
-  REQUIRE(9.9f == Approx(m.e_10));
-  REQUIRE(-16.8f == Approx(m.e_11));
+  REQUIRE(2.0f == Approx(mat_a.e_00));
+  REQUIRE(4.0f == Approx(mat_a.e_01));
+  REQUIRE(9.9f == Approx(mat_a.e_10));
+  REQUIRE(-16.8f == Approx(mat_a.e_11));
 
   // float s = 2;
   // m *= s;
