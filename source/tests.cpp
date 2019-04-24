@@ -167,39 +167,70 @@ TEST_CASE ( "operator * (2)" , "[vec2]" ) {
 
 // Aufgabe 2.5 *= operator
 TEST_CASE ("operator *= Matrizen", "[mat2]"){
-  Mat2 mat_a {2.0f, 1.5f, 3.3f, -4.2f};
+  Mat2 mat_a {2.0f, 1.0f, 3.0f, -4.0f};
+  Mat2 mat_b {1.0f, 2.0f, 6.0f, 0.0f};
   
-  Mat2 mat_b {1.0f, 2.0f, 3.0f, 4.0f};
   mat_a *= mat_b;
 
-  // e_00 = 2.0f;
-  // e_01 = 1.5f;
-  // e_10 = 3.3f;
-  // e_11 = -4.2f;
-
-  REQUIRE(2.0f == Approx(mat_a.e_00));
+  REQUIRE(8.0f == Approx(mat_a.e_00));
   REQUIRE(4.0f == Approx(mat_a.e_01));
-  REQUIRE(9.9f == Approx(mat_a.e_10));
-  REQUIRE(-16.8f == Approx(mat_a.e_11));
+  REQUIRE(-21.0f == Approx(mat_a.e_10));
+  REQUIRE(6.0f == Approx(mat_a.e_11));
 
-  // float s = 2;
-  // m *= s;
+  Mat2 mat_c {-3.0f, 1.5f, 8.0f, 0.0f};
+  Mat2 mat_d {1.0f, 3.0f, -7.0f, 9.0f};
+  
+  mat_c *= mat_d;
 
-  // REQUIRE(4.0f == Approx(m.e_00));
-  // REQUIRE(3.0f == Approx(m.e_01));
-  // REQUIRE(6.6f == Approx(m.e_10));
-  // REQUIRE(-8.4f == Approx(m.e_11));
-
+  REQUIRE(-13.5f == Approx(mat_c.e_00));
+  REQUIRE(4.5f == Approx(mat_c.e_01));
+  REQUIRE(8.0f == Approx(mat_c.e_10));
+  REQUIRE(24.0f == Approx(mat_c.e_11));
  
 }
 
-TEST_CASE ("Grauton RGB", "[color.hpp]"){
-  Color a;
+// Aufgabe 2.5 * operator
+TEST_CASE ("operator * Matrizen", "[mat2]"){
+  Mat2 mat_a {2.0f, 1.0f, 3.0f, -4.0f};
+  Mat2 mat_b {1.0f, 2.0f, 6.0f, 0.0f};
   
-  REQUIRE(0.5f == a.r);
-  REQUIRE(0.5f == a.g);
-  REQUIRE(0.5f == a.b);
+  Mat2 mat_c = mat_a *= mat_b;
+
+  REQUIRE(8.0f == Approx(mat_c.e_00));
+  REQUIRE(4.0f == Approx(mat_c.e_01));
+  REQUIRE(-21.0f == Approx(mat_c.e_10));
+  REQUIRE(6.0f == Approx(mat_c.e_11));
+
+  Mat2 mat_d {-3.0f, 1.5f, 8.0f, 0.0f};
+  Mat2 mat_e {1.0f, 3.0f, -7.0f, 9.0f};
+  
+  Mat2 mat_f = mat_d *= mat_e;
+
+  REQUIRE(-13.5f == Approx(mat_f.e_00));
+  REQUIRE(4.5f == Approx(mat_f.e_01));
+  REQUIRE(8.0f == Approx(mat_f.e_10));
+  REQUIRE(24.0f == Approx(mat_f.e_11));
+ 
 }
+
+// Aufgabe 2.6 det ()
+TEST_CASE ("Determinante", "[mat2]") {
+  Mat2 mat_a {2.0f, 1.0f, 3.0f, -4.0f};
+  float b = mat_a.det();
+  REQUIRE(b == Approx (10.0f));
+
+  Mat2 mat_c {1.5f, -5.5f, 2.0f, 9.0f};
+  float d = mat_c.det();
+  REQUIRE(d == Approx (52.5f));
+}
+
+// TEST_CASE ("Grauton RGB", "[color.hpp]"){
+//   Color a;
+  
+//   REQUIRE(0.5f == a.r);
+//   REQUIRE(0.5f == a.g);
+//   REQUIRE(0.5f == a.b);
+// }
 
 int main(int argc, char *argv[])
 {
