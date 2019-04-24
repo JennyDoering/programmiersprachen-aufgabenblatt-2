@@ -1,60 +1,34 @@
 #include "mat2.hpp"
 
-// Memberfunktion
+// Memberfunktion (Aufgabe 2.5)
 Mat2 & Mat2::operator *=( Mat2 const & m ) {
-   
-    // std::array (<std::array < float, 2 > , 2 > const & m);
-    // m = { 
-    //     {a, b}, 
-    //     {c, d};
-    // }
-   
-    // float e_00 = (a* e + b* g);
-    // float e_01 = (a* f + b* h);
-    // float e_10 = (c* e + d* g);
-    // float e_11 = (c* f + d* h);
 
-    // e_00 = (a.m * s + b.m * s);
-    // e_01 = (a.m * s + b.m * s);
-    // e_01 = (c.m * s + d.m * s);
-    // e_11 = (c.m * s + d.m * s);
+    float a = e_00;
+    float b = e_01;
+    float c = e_10;
+    float d = e_11;
 
-    // float s;
-    // m := {e_00, e_01, e_10, e_11};
-    // e_00 = (e_00.m * s + e_01.m * s);
-    // e_01 = (e_00.m * s + e_01.m * s);
-    // e_01 = (e_10.m * s + e_11.m * s);
-    // e_11 = (e_10.m * s + e_11.m * s);
-
-    // e_00 = (e_00 * s + e_01 * s);
-    // e_01 = (e_00 * s + e_01 * s);
-    // e_01 = (e_10 * s + e_11 * s);
-    // e_11 = (e_10 * s + e_11 * s);
-
-    // e_00 = e_00 * s;
-    // e_01 = e_01 * s;
-    // e_10 = e_10 * s;
-    // e_11 = e_11 * s;
-
-    int zeilen = 2;
-    int spalten = 2;
-    float mat_a[][];
-    float mat_b[][];
-    float mat_c[][];
-
-    for(int x = 0; x < zeilen; ++x){
-	    for(int j = 0; j < zeilen; ++j){	
-		    int result = 0;
-		    for(int y = 0; y < spalten; ++y){			
-				result += (mat_a[x][y].m * mat_b[y][j].m);
-		    }
-		    mat_c[x][j].m = result;
-	    }		
-    }
-
-    
+    e_00 = a * m.e_00 + b * m.e_10;
+    e_01 = a * m.e_01 + b * m.e_11;
+    e_10 = c * m.e_00 + d * m.e_10;
+    e_11 = c * m.e_01 + d * m.e_11;
 
     return *this;
 }
 
+// freie Funktion (Aufgabe 2.5)
+Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 ) {
+    Mat2 g = m1;
+    return g *= m2;
+}
 
+// Memberfunktion - Berechnung der Determinanten (Aufgabe 2.6)
+float Mat2::det () const {
+
+  float a = e_00;
+  float b = e_01;
+  float c = e_10;
+  float d = e_11;
+
+  return (a * c) - (b * d);
+}
