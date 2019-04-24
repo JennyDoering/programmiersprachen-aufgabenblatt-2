@@ -8,7 +8,7 @@
 TEST_CASE ( " vec2.hpp " , " [vec2] " )
 {
 Vec2 a ; // requires that 0.0 f == a . x and 0.0 f == a . y
-Vec2 b {5.1f , -9.3f }; /* requires that 5.1 f == Approx ( a . y ) and -9.3 f == Approx ( b . y ) */
+Vec2 b {5.1f , -9.3f }; /* requires that 5.1 f == Approx ( b . x ) and -9.3 f == Approx ( b . y ) */
 
 REQUIRE(0.0f == a.x);
 REQUIRE(0.0f == a.y);
@@ -191,6 +191,14 @@ TEST_CASE ("operator *= Matrizen", "[mat2]"){
   // REQUIRE(-8.4f == Approx(m.e_11));
 
  
+}
+
+TEST_CASE ("Grauton RGB", "[color.hpp]"){
+  Color a;
+  
+  REQUIRE(0.5f == a.r);
+  REQUIRE(0.5f == a.g);
+  REQUIRE(0.5f == a.b);
 }
 
 int main(int argc, char *argv[])
