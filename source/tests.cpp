@@ -224,6 +224,25 @@ TEST_CASE ("Determinante", "[mat2]") {
   REQUIRE(d == Approx (52.5f));
 }
 
+// Aufgabe 2.6 * operator Matrix * Vektor
+TEST_CASE ("Matrix * Vektor", "[mat2]") {
+  Mat2 mat1 {1.0f, 3.0f, 0.0f, 4.0f};
+  Vec2 vec1 {2.0f, 5.0f};
+  
+  Vec2 erg1 = mat1 * vec1;
+
+  REQUIRE(17.0f == Approx(erg1.x));
+  REQUIRE(20.0f == Approx(erg1.y));
+
+  Mat2 mat2 {5.0f, -2.0f, 1.0f, 8.0f};
+  Vec2 vec2 {1.0f, 3.0f};
+  
+  Vec2 erg2 = mat2 * vec2;
+
+  REQUIRE(-1.0f == Approx(erg2.x));
+  REQUIRE(25.0f == Approx(erg2.y));
+}
+
 // TEST_CASE ("Grauton RGB", "[color.hpp]"){
 //   Color a;
   
