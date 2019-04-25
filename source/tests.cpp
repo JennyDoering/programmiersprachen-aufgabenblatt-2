@@ -243,6 +243,21 @@ TEST_CASE ("Matrix * Vektor", "[mat2]") {
   REQUIRE(25.0f == Approx(erg2.y));
 }
 
+// Aufgabe 2.6 * operator Vektor * Matrix
+// TEST_CASE ("Vektor * Matrix", "[mat2]") {
+
+// }
+
+// Aufgabe 2.6 transpose ()
+TEST_CASE ("transpose", "[mat2]") {
+  Mat2 mat_g = {1.0f, 2.0f, 3.0f, 4.0f};
+
+  REQUIRE(transpose(mat_g).e_00 == 1.0f);
+  REQUIRE(transpose(mat_g).e_01 == 3.0f);
+  REQUIRE(transpose(mat_g).e_10 == 2.0f);
+  REQUIRE(transpose(mat_g).e_11 == 4.0f);
+}
+
 // TEST_CASE ("Grauton RGB", "[color.hpp]"){
 //   Color a;
   

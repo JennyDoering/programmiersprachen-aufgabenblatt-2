@@ -43,7 +43,43 @@ Vec2 operator*(Mat2 const & m, Vec2 const & v) {
   return erg;
 }
 
-Vec2 operator*(Vec2 const & v, Mat2 const & m);
-Mat2 inverse(Mat2 const & m);
-Mat2 transpose(Mat2 const & m);
-Mat2 make_rotation_mat2(float phi);
+// Vec2 operator*(Vec2 const & v, Mat2 const & m) {
+  
+// }
+
+Mat2 inverse(Mat2 const & m) {
+
+}
+
+Mat2 transpose(Mat2 const & m) {
+  
+  // Mat2 new{m};
+
+  // new.e_00 = m.e_00;
+  // new.e_01 = m.e_10;
+  // new.e_10 = m.e_01;
+  // new.e_11 = m.e_11;
+ 
+  // return new;
+
+  // Mat2 const & new{m};
+  // float a = m.e_01;
+  // float b = m.e_10;
+  // float c = m.e_00;
+  // float d = m.e_11;
+
+  Mat2 new = m;
+
+  new.e_00 = m.e_00;
+  new.e_01 = m.e_10;
+  new.e_10 = m.e_01;
+  new.e_11 = m.e_11;
+
+  return new;
+}
+
+
+
+Mat2 make_rotation_mat2(float phi) {
+
+}
