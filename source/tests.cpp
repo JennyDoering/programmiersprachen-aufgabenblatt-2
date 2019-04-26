@@ -217,11 +217,11 @@ TEST_CASE ("operator * Matrizen", "[mat2]"){
 TEST_CASE ("Determinante", "[mat2]") {
   Mat2 mat_a {2.0f, 1.0f, 3.0f, -4.0f};
   float b = mat_a.det();
-  REQUIRE(b == Approx (10.0f));
+  REQUIRE(b == Approx (-11.0f));
 
   Mat2 mat_c {1.5f, -5.5f, 2.0f, 9.0f};
   float d = mat_c.det();
-  REQUIRE(d == Approx (52.5f));
+  REQUIRE(d == Approx (24.5f));
 }
 
 // Aufgabe 2.6 * operator Matrix * Vektor
@@ -243,10 +243,24 @@ TEST_CASE ("Matrix * Vektor", "[mat2]") {
   REQUIRE(25.0f == Approx(erg2.y));
 }
 
-// Aufgabe 2.6 * operator Vektor * Matrix
-// TEST_CASE ("Vektor * Matrix", "[mat2]") {
+//Aufgabe 2.6 * operator Vektor * Matrix
+TEST_CASE ("Vektor * Matrix", "[mat2]") {
+  Vec2 vec1 {2.0f, 5.0f};
+  Mat2 mat1 {1.0f, 3.0f, 0.0f, 4.0f};
+ 
+  Vec2 erg1 = vec1 * mat1;
 
-// }
+  REQUIRE(2.0f == Approx(erg1.x));
+  REQUIRE(26.0f == Approx(erg1.y));
+
+  Mat2 mat2 {5.0f, -2.0f, 1.0f, 8.0f};
+  Vec2 vec2 {1.0f, 3.0f};
+  
+  Vec2 erg2 = vec2 * mat2;
+
+  REQUIRE(8.0f == Approx(erg2.x));
+  REQUIRE(22.0f == Approx(erg2.y));
+}
 
 // Aufgabe 2.6 transpose ()
 TEST_CASE ("transpose", "[mat2]") {
@@ -256,6 +270,16 @@ TEST_CASE ("transpose", "[mat2]") {
   REQUIRE(transpose(mat_g).e_01 == 3.0f);
   REQUIRE(transpose(mat_g).e_10 == 2.0f);
   REQUIRE(transpose(mat_g).e_11 == 4.0f);
+}
+
+// Aufgabe 2.6 inverse ()
+TEST_CASE ("inverse", "[mat2]") {
+  Mat2 mat_k = {1.0f, 2.0f, 3.0f, 4.0f};
+
+  REQUIRE(inverse(mat_k).e_00 == -2.0f);
+  REQUIRE(inverse(mat_k).e_01 == 1.0f);
+  REQUIRE(inverse(mat_k).e_10 == 1.5f);
+  REQUIRE(inverse(mat_k).e_11 == -0.5f);
 }
 
 // TEST_CASE ("Grauton RGB", "[color.hpp]"){

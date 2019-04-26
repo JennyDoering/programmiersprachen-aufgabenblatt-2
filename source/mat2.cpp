@@ -31,7 +31,7 @@ float Mat2::det () const {
   float c = e_10;
   float d = e_11;
 
-  return (a * c) - (b * d);
+  return (a * d) - (b * c);
 }
 
 Vec2 operator*(Mat2 const & m, Vec2 const & v) {
@@ -43,43 +43,43 @@ Vec2 operator*(Mat2 const & m, Vec2 const & v) {
   return erg;
 }
 
-// Vec2 operator*(Vec2 const & v, Mat2 const & m) {
+Vec2 operator*(Vec2 const & v, Mat2 const & m) {
   
-// }
+  float a = v.x * m.e_00 + v.y * m.e_10;
+  float b = v.x * m.e_01 + v.y * m.e_11;
+
+  Vec2 erg = {a, b};
+  return erg;
+}
 
 Mat2 inverse(Mat2 const & m) {
+// Adjunkte Berechnung
+
+  Mat2 mat_invers;
+  float det = (m.e_00 * m.e_11) - (m.e_01 * m.e_10);
+  float q = 1/ det;
+
+  mat_invers.e_00 = q * m.e_11;
+  mat_invers.e_01 = q * (-m.e_01);
+  mat_invers.e_10 = q * (-m.e_10);
+  mat_invers.e_11 = q * m.e_00;
+
+  return mat_invers;
 
 }
 
 Mat2 transpose(Mat2 const & m) {
-  
-  // Mat2 new{m};
 
-  // new.e_00 = m.e_00;
-  // new.e_01 = m.e_10;
-  // new.e_10 = m.e_01;
-  // new.e_11 = m.e_11;
- 
-  // return new;
+  Mat2 n = m;
 
-  // Mat2 const & new{m};
-  // float a = m.e_01;
-  // float b = m.e_10;
-  // float c = m.e_00;
-  // float d = m.e_11;
+  n.e_00 = m.e_00;
+  n.e_01 = m.e_10;
+  n.e_10 = m.e_01;
+  n.e_11 = m.e_11;
 
-  Mat2 new = m;
-
-  new.e_00 = m.e_00;
-  new.e_01 = m.e_10;
-  new.e_10 = m.e_01;
-  new.e_11 = m.e_11;
-
-  return new;
+  return n;
 }
 
+// Mat2 make_rotation_mat2(float phi) {
 
-
-Mat2 make_rotation_mat2(float phi) {
-
-}
+// }
