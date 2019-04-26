@@ -1,5 +1,6 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
@@ -293,13 +294,14 @@ TEST_CASE ("make_rotation_mat2", "[mat2]") {
   REQUIRE(o_rot.y == Approx (-2.0f));
 }
 
-// TEST_CASE ("Grauton RGB", "[color.hpp]"){
-//   Color a;
+// Aufgabe 2.7
+TEST_CASE ("Grauton RGB", "[color.hpp]"){
+  Color a;
   
-//   REQUIRE(0.5f == a.r);
-//   REQUIRE(0.5f == a.g);
-//   REQUIRE(0.5f == a.b);
-// }
+  REQUIRE(0.5f == a.r);
+  REQUIRE(0.5f == a.g);
+  REQUIRE(0.5f == a.b);
+}
 
 int main(int argc, char *argv[])
 {

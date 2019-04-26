@@ -1,14 +1,16 @@
+# ifndef COLOR_HPP
+# define COLOR_HPP
 
-enum color {
-    r, g, b
-};
+// enum color {
+//     r, g, b
+// };
 
-struct color {
+struct Color {
+
     // mittlerer Grauton
     float r = 0.5f;
     float g = 0.5f;
-    float b = 0.5f;
-    // if (0 <= r <= 1 && 0 <= g <= 1 && 0 <= b <= 1) {
+    float b = 0.5f;   
+};
 
-    // }
-}
+# endif
