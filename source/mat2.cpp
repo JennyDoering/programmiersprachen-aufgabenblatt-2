@@ -1,5 +1,6 @@
 #include "mat2.hpp"
 #include "vec2.hpp"
+#include <cmath>
 
 // Memberfunktion (Aufgabe 2.5)
 Mat2 & Mat2::operator *=( Mat2 const & m ) {
@@ -80,6 +81,8 @@ Mat2 transpose(Mat2 const & m) {
   return n;
 }
 
-// Mat2 make_rotation_mat2(float phi) {
-
-// }
+Mat2 make_rotation_mat2(float phi) {
+  
+  Mat2 mat_gedreht = {std::cos(phi), -std::sin(phi), std::sin(phi), std::cos(phi)};
+  return mat_gedreht;
+}

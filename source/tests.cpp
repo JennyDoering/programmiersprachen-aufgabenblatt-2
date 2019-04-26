@@ -245,21 +245,21 @@ TEST_CASE ("Matrix * Vektor", "[mat2]") {
 
 //Aufgabe 2.6 * operator Vektor * Matrix
 TEST_CASE ("Vektor * Matrix", "[mat2]") {
-  Vec2 vec1 {2.0f, 5.0f};
-  Mat2 mat1 {1.0f, 3.0f, 0.0f, 4.0f};
+  Vec2 vec3 {2.0f, 5.0f};
+  Mat2 mat3 {1.0f, 3.0f, 0.0f, 4.0f};
  
-  Vec2 erg1 = vec1 * mat1;
+  Vec2 erg3 = vec3 * mat3;
 
-  REQUIRE(2.0f == Approx(erg1.x));
-  REQUIRE(26.0f == Approx(erg1.y));
+  REQUIRE(2.0f == Approx(erg3.x));
+  REQUIRE(26.0f == Approx(erg3.y));
 
-  Mat2 mat2 {5.0f, -2.0f, 1.0f, 8.0f};
-  Vec2 vec2 {1.0f, 3.0f};
+  Mat2 mat4 {5.0f, -2.0f, 1.0f, 8.0f};
+  Vec2 vec4 {1.0f, 3.0f};
   
-  Vec2 erg2 = vec2 * mat2;
+  Vec2 erg4 = vec4 * mat4;
 
-  REQUIRE(8.0f == Approx(erg2.x));
-  REQUIRE(22.0f == Approx(erg2.y));
+  REQUIRE(8.0f == Approx(erg4.x));
+  REQUIRE(22.0f == Approx(erg4.y));
 }
 
 // Aufgabe 2.6 transpose ()
@@ -280,6 +280,17 @@ TEST_CASE ("inverse", "[mat2]") {
   REQUIRE(inverse(mat_k).e_01 == 1.0f);
   REQUIRE(inverse(mat_k).e_10 == 1.5f);
   REQUIRE(inverse(mat_k).e_11 == -0.5f);
+}
+
+// Aufgabe 2.6 make_rotation_mat2 ()
+TEST_CASE ("make_rotation_mat2", "[mat2]") {
+  Vec2 o = {1.0f, 2.0f};
+  const float Pi = 3.1415926f;
+  Mat2 mat_p = make_rotation_mat2(Pi);
+  Vec2 o_rot = o * mat_p;
+  
+  REQUIRE(o_rot.x == Approx (-1.0f));
+  REQUIRE(o_rot.y == Approx (-2.0f));
 }
 
 // TEST_CASE ("Grauton RGB", "[color.hpp]"){
