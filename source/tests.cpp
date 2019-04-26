@@ -271,27 +271,49 @@ TEST_CASE ("transpose", "[mat2]") {
   REQUIRE(transpose(mat_g).e_01 == 3.0f);
   REQUIRE(transpose(mat_g).e_10 == 2.0f);
   REQUIRE(transpose(mat_g).e_11 == 4.0f);
+
+  Mat2 mat_s = {-9.0f, -2.3f, 8.1f, 5.0f};
+
+  REQUIRE(transpose(mat_s).e_00 == -9.0f);
+  REQUIRE(transpose(mat_s).e_01 == 8.1f);
+  REQUIRE(transpose(mat_s).e_10 == -2.3f);
+  REQUIRE(transpose(mat_s).e_11 == 5.0f);
 }
 
 // Aufgabe 2.6 inverse ()
 TEST_CASE ("inverse", "[mat2]") {
   Mat2 mat_k = {1.0f, 2.0f, 3.0f, 4.0f};
 
-  REQUIRE(inverse(mat_k).e_00 == -2.0f);
-  REQUIRE(inverse(mat_k).e_01 == 1.0f);
-  REQUIRE(inverse(mat_k).e_10 == 1.5f);
-  REQUIRE(inverse(mat_k).e_11 == -0.5f);
+  REQUIRE(inverse(mat_k).e_00 == Approx(-2.0f));
+  REQUIRE(inverse(mat_k).e_01 == Approx(1.0f));
+  REQUIRE(inverse(mat_k).e_10 == Approx(1.5f));
+  REQUIRE(inverse(mat_k).e_11 == Approx(-0.5f));
+
+  Mat2 mat_w = {2.5f, -7.0f, 10.0f, -21.0f};
+
+  REQUIRE(inverse(mat_w).e_00 == Approx(-1.2f));
+  REQUIRE(inverse(mat_w).e_01 == Approx(0.4f));
+  REQUIRE(inverse(mat_w).e_10 == Approx(-0.5714).epsilon(0.001));
+  REQUIRE(inverse(mat_w).e_11 == Approx(0.143f).epsilon(0.001));
 }
 
 // Aufgabe 2.6 make_rotation_mat2 ()
 TEST_CASE ("make_rotation_mat2", "[mat2]") {
+  float pi = 3.1415926f;
+
   Vec2 o = {1.0f, 2.0f};
-  const float Pi = 3.1415926f;
-  Mat2 mat_p = make_rotation_mat2(Pi);
-  Vec2 o_rot = o * mat_p;
+  Mat2 mat_p = make_rotation_mat2(pi);
+  Vec2 o_rot = mat_p * o;
   
-  REQUIRE(o_rot.x == Approx (-1.0f));
-  REQUIRE(o_rot.y == Approx (-2.0f));
+  REQUIRE(o_rot.x == Approx(-1.0f).epsilon(0.001));
+  REQUIRE(o_rot.y == Approx(-2.0f).epsilon(0.001));
+
+  // Vec2 t = {8.0f, 4.0f};
+  // Mat2 mat_q = make_rotation_mat2(pi/3.0f);
+  // Vec2 t_rot = mat_q * t;
+  
+  // REQUIRE(t_rot.x == Approx(4.928f).epsilon(0.001));
+  // REQUIRE(t_rot.y == Approx(7.464f).epsilon(0.001));
 }
 
 // Aufgabe 2.7
