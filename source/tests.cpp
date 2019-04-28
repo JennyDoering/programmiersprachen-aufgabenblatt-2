@@ -1,6 +1,7 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include <cmath>
 
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
@@ -299,7 +300,7 @@ TEST_CASE ("inverse", "[mat2]") {
 
 // Aufgabe 2.6 make_rotation_mat2 ()
 TEST_CASE ("make_rotation_mat2", "[mat2]") {
-  float pi = 3.1415926f;
+  const float pi = 3.1415926f;
 
   Vec2 o = {1.0f, 2.0f};
   Mat2 mat_p = make_rotation_mat2(pi);
@@ -308,12 +309,12 @@ TEST_CASE ("make_rotation_mat2", "[mat2]") {
   REQUIRE(o_rot.x == Approx(-1.0f).epsilon(0.001));
   REQUIRE(o_rot.y == Approx(-2.0f).epsilon(0.001));
 
-  // Vec2 t = {8.0f, 4.0f};
-  // Mat2 mat_q = make_rotation_mat2(pi/3.0f);
-  // Vec2 t_rot = mat_q * t;
+  Vec2 t = {8.0f, 4.0f};
+  Mat2 mat_q = make_rotation_mat2(pi/6);
+  Vec2 t_rot = mat_q * t;
   
-  // REQUIRE(t_rot.x == Approx(4.928f).epsilon(0.001));
-  // REQUIRE(t_rot.y == Approx(7.464f).epsilon(0.001));
+  REQUIRE(t_rot.x == Approx(4.928f).epsilon(0.001));
+  REQUIRE(t_rot.y == Approx(7.464f).epsilon(0.001));
 }
 
 // Aufgabe 2.7

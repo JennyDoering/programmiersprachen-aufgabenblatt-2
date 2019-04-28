@@ -35,24 +35,27 @@ float Mat2::det () const {
   return (a * d) - (b * c);
 }
 
+// freie Funktion - Matrix * Vektor (Aufgabe 2.6)
 Vec2 operator*(Mat2 const & m, Vec2 const & v) {
  
-  float a = m.e_00 * v.x + m.e_01 * v.y;
-  float b = m.e_10 * v.x + m.e_11 * v.y;
+  float a = (m.e_00 * v.x) + (m.e_01 * v.y);
+  float b = (m.e_10 * v.x) + (m.e_11 * v.y);
 
   Vec2 erg = {a, b};
   return erg;
 }
 
+// freie Funktion - Vektor * Matrix (Aufgabe 2.6)
 Vec2 operator*(Vec2 const & v, Mat2 const & m) {
   
-  float a = v.x * m.e_00 + v.y * m.e_10;
-  float b = v.x * m.e_01 + v.y * m.e_11;
+  float c = (v.x * m.e_00) + (v.y * m.e_10);
+  float d = (v.x * m.e_01) + (v.y * m.e_11);
 
-  Vec2 erg = {a, b};
-  return erg;
+  Vec2 ergebnis = {c, d};
+  return ergebnis;
 }
 
+// freie Funktion - Inverse Matrix (Aufgabe 2.6)
 Mat2 inverse(Mat2 const & m) {
 // Adjunkte Berechnung
 
@@ -69,6 +72,7 @@ Mat2 inverse(Mat2 const & m) {
 
 }
 
+// freie Funktion - Transponierte Matrix (Aufgabe 2.6)
 Mat2 transpose(Mat2 const & m) {
 
   Mat2 n = m;
@@ -81,8 +85,13 @@ Mat2 transpose(Mat2 const & m) {
   return n;
 }
 
+// freie Funktion - Drehmatrix (Aufgabe 2.6)
 Mat2 make_rotation_mat2(float phi) {
   
-  Mat2 mat_gedreht = {std::cos(phi), -std::sin(phi), std::sin(phi), std::cos(phi)};
+  Mat2 mat_gedreht = {std::cos(phi), -(std::sin(phi)), std::sin(phi), std::cos(phi)};
   return mat_gedreht;
+
+  // Mat2 mat_gedreht;
+
+  // float e = 
 }
