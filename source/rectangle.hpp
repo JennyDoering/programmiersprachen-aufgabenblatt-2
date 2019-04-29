@@ -1,11 +1,21 @@
 # ifndef RECTANGLE_HPP
 # define RECTANGLE_HPP
 # include "vec2.hpp" 
+# include "color.hpp"
+# include "window.hpp"
+# include <cmath>
 
 
 class Rectangle {
-    Vec2 min_ = {1.0f, 1.0f};
-    Vec2 max_ = {1.0f, 1.0f};
+
+public: 
+    Rectangle();
+    Rectangle(Vec2 min_, Vec2 max_, Color col_);
+
+private:
+    Vec2 min_;
+    Vec2 max_;
+    Color col_;
 };
 
 
