@@ -10,6 +10,7 @@ class Circle {
 public:
    Circle();
    Circle(Vec2 const& point_, float const& radius_, Color const& col_);
+   float circumference() const;
 
 private:
 
