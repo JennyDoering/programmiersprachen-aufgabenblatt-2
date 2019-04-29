@@ -2,6 +2,12 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
+# include "circle.cpp"
+# include "rectangle.cpp"
+# include "color.hpp"
+# include "vec2.cpp"
+# include "mat2.cpp"
+
 
 
 int main(int argc, char* argv[])
@@ -51,6 +57,13 @@ int main(int argc, char* argv[])
     unsigned int font_size = 35;
     
     win.draw_text(text_offset_x, text_offset_y, font_size, display_text);
+
+    // Aufgabe 2.11
+    Circle k = Circle(Vec2 {200.0f, 200.0f}, 100.0f, Color {0.0f, 1.0f, 0.0f});
+    k.draw(win);
+
+    Rectangle n = Rectangle(Vec2 {400.0f, 100.0f}, Vec2 {600.0f, 300.0f}, Color {1.0f, 0.5f, 1.0f});
+    n.draw(win);
 
     win.update();
   }

@@ -1,10 +1,6 @@
 # ifndef COLOR_HPP
 # define COLOR_HPP
 
-// enum color {
-//     r, g, b
-// };
-
 struct Color {
 
     // mittlerer Grauton

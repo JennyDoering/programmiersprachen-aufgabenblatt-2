@@ -12,6 +12,7 @@ public:
     Rectangle();
     Rectangle(Vec2 const& min_, Vec2 const& max_, Color const& col_);
     float circumference() const;
+    void draw(Window const& win) const;
 
 private:
     Vec2 min_;
