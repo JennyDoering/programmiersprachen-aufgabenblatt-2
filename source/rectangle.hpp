@@ -10,14 +10,15 @@ class Rectangle {
 
 public: 
     Rectangle();
-    Rectangle(Vec2 const& min_, Vec2 const& max_, Color const& col_);
+    Rectangle(Vec2 const& min_, Vec2 const& max_, Color const& col_, Color const& highlight_col_ = Color {});
     float circumference() const;
-    void draw(Window const& win) const;
+    void draw(Window const& win, float line_thickness = 1.0f, bool highlight = false) const;
 
 private:
     Vec2 min_;
     Vec2 max_;
     Color col_;
+    Color highlight_col_;
 };
 
 

@@ -10,15 +10,16 @@
 class Circle {
 public:
    Circle();
-   Circle(Vec2 const& point_, float const& radius_, Color const& col_);
+   Circle(Vec2 const& point_, float const& radius_, Color const& col_, Color const& highlight_col_ = Color {});
    float circumference() const;
-   void draw(Window const& win) const;
+   void draw(Window const& win, float line_thickness = 1.0f, bool highlight = false) const;
 
 private:
 
     float radius_;
     Vec2 point_;
     Color col_;
+    Color highlight_col_;
 };
 
 
