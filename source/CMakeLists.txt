@@ -7,6 +7,7 @@ add_executable(example
   circle.cpp
   mat2.cpp
   vec2.cpp
+  clock.cpp
   )
 target_link_libraries(example
   glfw
@@ -25,6 +26,7 @@ add_executable(tests
   rectangle.cpp
   circle.cpp
   window.cpp
+  clock.cpp
   )
 target_link_libraries(tests
   glfw
