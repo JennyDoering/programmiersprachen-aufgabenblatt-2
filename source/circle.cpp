@@ -25,3 +25,7 @@ void Circle::draw(Window const& win, float line_thickness, bool highlight) const
     
 }
 
+bool Circle::is_inside_c(const Vec2& point_) const {
+    Vec2 m = {0, radius_};
+}
+

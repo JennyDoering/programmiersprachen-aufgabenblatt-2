@@ -26,3 +26,19 @@ void Rectangle::draw(Window const& win, float line_thickness, bool highlight) co
     win.draw_line(min_.x, max_.y, min_.x, min_.y, col_.r, col_.g, col_.b, line_thickness);
     }
 }
+
+bool Rectangle::is_inside(const Vec2& point_) const {
+    Vec2 m = 0.5 * (min_ + max_);
+
+    Vec2 h = max_ + m;
+    float abstand_max_und_m = sqrt(((h.x) * (h.x)) + ((h.y) * (h.y)));
+
+    Vec2 g = point_ + m;
+    float abstand_point_und_m = sqrt(((g.x) * (g.x)) + ((g.y) * (g.y)));
+    if (abstand_point_und_m > abstand_max_und_m) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}

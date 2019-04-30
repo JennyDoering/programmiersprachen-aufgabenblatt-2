@@ -345,6 +345,24 @@ TEST_CASE ("circumference", "[circle, rectangle]"){
   REQUIRE(Approx(r2.circumference()) == 8.0f);
 }
 
+//Aufgabe 2.13
+TEST_CASE ("is_inside", "[rectangle]"){
+
+  // Circle c1 = Circle(Vec2 {1.0f, 4.0f}, 1.0f, Color {});
+  // Vec2 p1 = 
+  // REQUIRE(Approx(c1.is_inside()) == true);
+
+  // Circle c2 = Circle (Vec2 {2.0f, 3.0f}, 2.5f, Color {});
+  // REQUIRE(Approx(c2.circumference()) == 15.70795);
+
+  Rectangle r1 = Rectangle(Vec2 {1.0f, 1.0f}, Vec2 {4.0f, 4.0f}, Color {});
+  Vec2 p1 = {2.0f, 3.0f};
+  REQUIRE(r1.is_inside(p1) == true);
+
+  // Rectangle r2 = Rectangle(Vec2 {2.0f, 2.0f}, Vec2 {4.0f, 4.0f}, Color {});
+  // REQUIRE(Approx(r2.circumference()) == 8.0f);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
