@@ -61,16 +61,12 @@ int main(int argc, char* argv[])
 
     // Aufgabe 2.11
     Circle k = Circle(Vec2 {200.0f, 200.0f}, 150.0f, Color {0.0f, 1.0f, 0.0f}, Color {0.0f, 1.0f, 1.0f});
-    k.draw(win, 2.0f, false);
-
+    
     Circle c = Circle(Vec2 {500.0f, 560.0f}, 120.0f, Color {1.0f, 0.0f, 0.0f}, Color {1.0f, 1.0f, 0.0f});
-    c.draw(win, 2.0f, false);
 
     Rectangle n = Rectangle(Vec2 {400.0f, 100.0f}, Vec2 {600.0f, 300.0f}, Color {1.0f, 0.5f, 1.0f}, Color {1.0f, 1.0f, 1.0f});
-    n.draw(win, 2.0f, false);
-
+   
     Rectangle a = Rectangle(Vec2 {250.0f, 500.0f}, Vec2 {100.0f, 700.0f}, Color {0.0f, 0.0f, 1.0f}, Color {0.0f, 0.0f, 0.0f});
-    a.draw(win, 2.0f, false);
 
     // Aufgabe 2.13
     std::vector <Circle> Circles;
@@ -81,8 +77,8 @@ int main(int argc, char* argv[])
     Rectangles.push_back(n);
     Rectangles.push_back(a);
 
-    for (int q = 0; q <= Circles.size(); ++q) {
-        if (Circles[q].is_inside_c({float(mouse_position.first), float(mouse_position.second)})) {
+    for (int q = 0; q < Circles.size(); ++q) {
+        if (Circles[q].is_inside_c(Vec2{float(mouse_position.first), float(mouse_position.second)})) {
             Circles[q].draw(win, 10.0f, true);
         } 
         else {
@@ -90,8 +86,8 @@ int main(int argc, char* argv[])
         }
     }
 
-    for (int w = 0; w <= Rectangles.size(); ++w) {
-        if (Rectangles[w].is_inside({float(mouse_position.first), float(mouse_position.second)})) {
+    for (int w = 0; w < Rectangles.size(); ++w) {
+        if (Rectangles[w].is_inside(Vec2{float(mouse_position.first), float(mouse_position.second)})) {
             Rectangles[w].draw(win, 10.0f, true);
         } 
         else {
