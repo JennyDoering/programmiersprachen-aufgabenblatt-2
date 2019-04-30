@@ -353,7 +353,7 @@ TEST_CASE ("is_inside", "[circle, rectangle]"){
   REQUIRE(c1.is_inside_c(k1) == true);
 
   Circle c2 = Circle (Vec2 {2.0f, 3.0f}, 2.5f, Color {});
-  Vec2 k2 = {1.0f, 1.0f};
+  Vec2 k2 = {10.0f, 10.0f};
   REQUIRE(c2.is_inside_c(k2) == false);
 
   Rectangle r1 = Rectangle(Vec2 {1.0f, 1.0f}, Vec2 {4.0f, 4.0f}, Color {});

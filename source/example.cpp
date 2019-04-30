@@ -62,8 +62,14 @@ int main(int argc, char* argv[])
     Circle k = Circle(Vec2 {200.0f, 200.0f}, 100.0f, Color {0.0f, 1.0f, 0.0f}, Color {0.0f, 1.0f, 1.0f});
     k.draw(win, 10.0f, true);
 
+    Circle c = Circle(Vec2 {500.0f, 500.0f}, 150.0f, Color {1.0f, 0.0f, 0.0f}, Color {1.0f, 0.0f, 1.0f});
+    c.draw(win, 5.0f, true);
+
     Rectangle n = Rectangle(Vec2 {400.0f, 100.0f}, Vec2 {600.0f, 300.0f}, Color {1.0f, 0.5f, 1.0f}, Color {1.0f, 1.0f, 1.0f});
     n.draw(win, 7.0f, true);
+
+    Rectangle m = Rectangle(Vec2 {700.0f, 400.0f}, Vec2 {100.0f, 300.0f}, Color {0.0f, 0.5f, 1.0f}, Color {0.0f, 0.0f, 1.0f});
+    m.draw(win, 7.0f, true);
 
     win.update();
   }
