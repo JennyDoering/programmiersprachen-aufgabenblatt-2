@@ -25,7 +25,14 @@ void Circle::draw(Window const& win, float line_thickness, bool highlight) const
     
 }
 
-bool Circle::is_inside_c(const Vec2& point_) const {
-    Vec2 m = {0, radius_};
+bool Circle::is_inside_c(const Vec2& p) const {
+    Vec2 i = point_ + p;
+    float abstand_point_p = sqrt((i.x * i.x) + (i.y * i.y));
+    if (abstand_point_p > radius_) {
+        return false;
+    } 
+    else {
+        return true;
+    }
 }
 

@@ -346,21 +346,23 @@ TEST_CASE ("circumference", "[circle, rectangle]"){
 }
 
 //Aufgabe 2.13
-TEST_CASE ("is_inside", "[rectangle]"){
+TEST_CASE ("is_inside", "[circle, rectangle]"){
 
-  // Circle c1 = Circle(Vec2 {1.0f, 4.0f}, 1.0f, Color {});
-  // Vec2 p1 = 
-  // REQUIRE(Approx(c1.is_inside()) == true);
+  Circle c1 = Circle(Vec2 {1.0f, 4.0f}, 3.0f, Color {});
+  Vec2 k1 = {0.0f, 4.0f};
+  REQUIRE(c1.is_inside_c(k1) == true);
 
-  // Circle c2 = Circle (Vec2 {2.0f, 3.0f}, 2.5f, Color {});
-  // REQUIRE(Approx(c2.circumference()) == 15.70795);
+  Circle c2 = Circle (Vec2 {2.0f, 3.0f}, 2.5f, Color {});
+  Vec2 k2 = {1.0f, 1.0f};
+  REQUIRE(c2.is_inside_c(k2) == false);
 
   Rectangle r1 = Rectangle(Vec2 {1.0f, 1.0f}, Vec2 {4.0f, 4.0f}, Color {});
   Vec2 p1 = {2.0f, 3.0f};
   REQUIRE(r1.is_inside(p1) == true);
 
-  // Rectangle r2 = Rectangle(Vec2 {2.0f, 2.0f}, Vec2 {4.0f, 4.0f}, Color {});
-  // REQUIRE(Approx(r2.circumference()) == 8.0f);
+  Rectangle r2 = Rectangle(Vec2 {2.0f, 2.0f}, Vec2 {7.0f, 7.0f}, Color {});
+  Vec2 p2 = {1.0f, 1.0f};
+  REQUIRE(r2.is_inside(p2) == false);
 }
 
 int main(int argc, char *argv[])
