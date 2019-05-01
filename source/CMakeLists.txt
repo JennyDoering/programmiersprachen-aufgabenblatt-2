@@ -26,7 +26,7 @@ add_executable(tests
   rectangle.cpp
   circle.cpp
   window.cpp
-  clock.cpp
+  #clock.cpp
   )
 target_link_libraries(tests
   glfw

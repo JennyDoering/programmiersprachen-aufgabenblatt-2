@@ -22,6 +22,7 @@ public:
     
     Clock();
     Clock(Circle const& kreis_uhr);
+    void draw(Window const& win, float line_thickness = 1.0f, bool highlight = false) const;
     
 };
 
