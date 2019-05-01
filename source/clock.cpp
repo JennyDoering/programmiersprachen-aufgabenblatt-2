@@ -36,9 +36,9 @@ for (int i = 1; i <= 60; ++i) {
     winkel_minute += (((2 * M_PI) / 360) * 6); // 360 Grad / 60min = 6
 }
 
-win.draw_line(minute_punkt.x, minute_punkt.y, 250.0f * cos(winkel_stunde * (sekunde - 15)) + 250, 250 * sin(winkel_stunde * (sekunde - 15)) + 250, 1, 0, 0);
-win.draw_line(minute_punkt.x, minute_punkt.y, 200.0f * cos(winkel_stunde * (minute - 15)) + 250, 200 * sin(winkel_stunde * (minute - 15)) + 250, 1, 1, 1, 2);
-win.draw_line(minute_punkt.x, minute_punkt.y, 150.0f * cos(winkel_stunde * 5 * (stunde - 15)) + 250, 150 * sin(winkel_stunde * 5 * (stunde - 15)) + 250, 0, 0, 0, 5);
+win.draw_line(minute_punkt.x, minute_punkt.y, 300.0f * cos(winkel_stunde * (sekunde - 15)) + 200, 300 * sin(winkel_stunde * (sekunde - 15)) + 200);
+win.draw_line(minute_punkt.x, minute_punkt.y, 350.0f * cos(winkel_stunde * (minute - 15)) + 200, 350 * sin(winkel_stunde * (minute - 15)) + 200);
+win.draw_line(minute_punkt.x, minute_punkt.y, 200.0f * cos(winkel_stunde * 5 * (stunde - 15)) + 200, 200 * sin(winkel_stunde * 5 * (stunde - 15)) + 200);
 
 auto mouse_position = win.mouse_position();
 
