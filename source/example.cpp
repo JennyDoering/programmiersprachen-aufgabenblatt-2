@@ -8,7 +8,7 @@
 # include "vec2.hpp"
 # include "mat2.hpp"
 # include <vector>
-
+# include <array>
 
 
 int main(int argc, char* argv[])
@@ -64,18 +64,20 @@ int main(int argc, char* argv[])
     
     Circle c = Circle(Vec2 {500.0f, 560.0f}, 120.0f, Color {1.0f, 0.0f, 0.0f}, Color {1.0f, 1.0f, 0.0f});
 
-    Rectangle n = Rectangle(Vec2 {400.0f, 100.0f}, Vec2 {600.0f, 300.0f}, Color {1.0f, 0.5f, 1.0f}, Color {1.0f, 1.0f, 1.0f});
+    Rectangle n = Rectangle(Vec2 {400.0f, 300.0f}, Vec2 {600.0f, 100.0f}, Color {1.0f, 0.5f, 1.0f}, Color {1.0f, 1.0f, 1.0f});
    
-    Rectangle a = Rectangle(Vec2 {250.0f, 500.0f}, Vec2 {100.0f, 700.0f}, Color {0.0f, 0.0f, 1.0f}, Color {0.0f, 0.0f, 0.0f});
+    Rectangle a = Rectangle(Vec2 {100.0f, 700.0f}, Vec2 {250.0f, 500.0f}, Color {0.0f, 0.0f, 1.0f}, Color {0.0f, 0.0f, 0.0f});
 
     // Aufgabe 2.13
     std::vector <Circle> Circles;
     Circles.push_back(k);
     Circles.push_back(c);
 
-    std::vector <Rectangle> Rectangles;
-    Rectangles.push_back(n);
-    Rectangles.push_back(a);
+    // std::vector <Rectangle> Rectangles;
+    // Rectangles.push_back(n);
+    // Rectangles.push_back(a);
+
+    std::array <Rectangle,2> Rectangles = {n, a};
 
     for (int q = 0; q < Circles.size(); ++q) {
         if (Circles[q].is_inside_c(Vec2{float(mouse_position.first), float(mouse_position.second)})) {

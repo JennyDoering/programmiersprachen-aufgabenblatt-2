@@ -30,7 +30,7 @@ void Rectangle::draw(Window const& win, float line_thickness, bool highlight) co
 bool Rectangle::is_inside(const Vec2& p) const {
 
     if (p.x >= min_.x && p.x <= max_.x) { // pruefen, ob p.x im Rechteck liegt
-        if (p.y >= min_.y && p.y <= max_.y) { // pruefen, ob p.y im Rechteck liegt
+        if (p.y >= max_.y && p.y <= min_.y) { // pruefen, ob p.y im Rechteck liegt
             return true;
         }
         else {
