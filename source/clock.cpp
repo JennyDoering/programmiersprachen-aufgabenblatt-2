@@ -21,7 +21,6 @@ unsigned int font_size = 35;
     
 win.draw_text(text_offset_x, text_offset_y, font_size, display_text);
 
-
 Circle grund = Circle({400.0f, 400.0f}, 200.0f, Color {1.0f, 1.0f, 1.0f});
 grund.draw(win, 2.0f, false);
 
@@ -33,16 +32,9 @@ float winkel_stunde = (2 * M_PI) / 60;
 float winkel_minute = (2 * M_PI) / 60;
 float winkel_sekunde = (int)(2 * M_PI) % 12;
 
-for (int i = 1; i <= 60; ++i) {
-    win.draw_point(180.0f * std::cos(winkel_stunde) + 400.0f, 180.0f * std::sin(winkel_stunde) + 400.0f, 0.0f, 0.0f, 1.0f);
-    win.draw_point(180.0f * std::cos(winkel_minute) + 400.0f, 180.0f * std::sin(winkel_minute) + 400.0f, 1.0f, 0.0f, 0.0f);
-    winkel_stunde += (((2 * M_PI) / 360) * 30); // 360 Grad / 12h = 30
-    winkel_minute += (((2 * M_PI) / 360) * 6); // 360 Grad / 60min = 6
-}
-
-win.draw_line(minute_punkt.x, minute_punkt.y, 180.0f * cos(winkel_stunde * (sekunde - 15)) + 400.0f, 180.0f * sin(winkel_stunde * (sekunde - 15)) + 400.0f, 1.0f, 1.0f, 1.0f);
-win.draw_line(minute_punkt.x, minute_punkt.y, 150.0f * cos(winkel_stunde * (minute - 15)) + 400.0f, 150.0f * sin(winkel_stunde * (minute - 15)) + 400.0f, 1.0f, 1.0f, 1.0f);
-win.draw_line(minute_punkt.x, minute_punkt.y, 90.0f * cos(winkel_stunde * 5 * (stunde - 15)) + 400.0f, 90.0f * sin(winkel_stunde * 5 * (stunde - 15)) + 400.0f, 1.0f, 1.0f, 1.0f);
+win.draw_line(minute_punkt.x, minute_punkt.y, 180.0f * cos(winkel_stunde * (sekunde - 15)) + 400.0f, 180.0f * sin(winkel_stunde * (sekunde - 15)) + 400.0f, 1.0f, 1.0f, 0.0f);
+win.draw_line(minute_punkt.x, minute_punkt.y, 150.0f * cos(winkel_stunde * (minute - 15)) + 400.0f, 150.0f * sin(winkel_stunde * (minute - 15)) + 400.0f, 1.0f, 0.0f, 1.0f);
+win.draw_line(minute_punkt.x, minute_punkt.y, 90.0f * cos(winkel_stunde * 5 * (stunde - 15)) + 400.0f, 90.0f * sin(winkel_stunde * 5 * (stunde - 15)) + 400.0f, 0.0f, 1.0f, 0.0f);
 
 auto mouse_position = win.mouse_position();
 
